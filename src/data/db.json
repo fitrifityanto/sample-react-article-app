@@ -1,18 +1,30 @@
 {
-    "articles": [
-        {
-            "id": 1,
-            "title": "ini judul pertama",
-            "description": "ini description pertama",
-            "image_url": "https://picsum.photos/200/100",
-            "highlight" : false
-        },
-        {
-            "id": 2,
-            "title": "ini judul kedua",
-            "description": "ini description kedua",
-            "image_url": "https://picsum.photos/200/100",
-            "highlight" : true
-        }
-    ]
+  "articles": [
+    {
+      "id": 1,
+      "title": "ini judul pertama",
+      "description": "ini description pertama",
+      "image_url": "https://picsum.photos/200/100",
+      "highlight": false
+    },
+    {
+      "id": 2,
+      "title": "ini judul kedua",
+      "description": "ini description kedua",
+      "image_url": "https://picsum.photos/200/100",
+      "highlight": true
+    },
+    {
+      "title": "ini judul ketiga",
+      "description": "ini deskripsi ketiga",
+      "image_url": "https://picsum.photos/200/100",
+      "id": 3
+    },
+    {
+      "title": "ini judul ke empat",
+      "description": "ini deskripsi empat",
+      "image_url": "https://picsum.photos/200/100",
+      "id": 4
+    }
+  ]
 }
