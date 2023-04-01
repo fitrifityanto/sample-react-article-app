@@ -1,0 +1,18 @@
+{
+    "articles": [
+        {
+            "id": 1,
+            "title": "ini judul pertama",
+            "description": "ini description pertama",
+            "image_url": "https://picsum.photos/200/100",
+            "highlight" : false
+        },
+        {
+            "id": 2,
+            "title": "ini judul kedua",
+            "description": "ini description kedua",
+            "image_url": "https://picsum.photos/200/100",
+            "highlight" : true
+        }
+    ]
+}
