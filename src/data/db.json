@@ -8,17 +8,17 @@
       "highlight": false
     },
     {
-      "id": 2,
       "title": "ini judul kedua",
-      "description": "ini description kedua",
+      "description": "ini description kedua. sudah diupdate nih",
       "image_url": "https://picsum.photos/200/100",
-      "highlight": true
+      "highlight": true,
+      "id": 2
     },
     {
       "title": "ini judul ketiga",
       "description": "deskripsinya ketiga",
       "image_url": "https://picsum.photos/200/100",
-      "highlight": true,
+      "highlight": false,
       "id": 3
     },
     {

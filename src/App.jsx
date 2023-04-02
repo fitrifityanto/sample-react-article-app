@@ -4,10 +4,13 @@ import axios from 'axios'
 import CardArticles from './components/CardArticles'
 import FormCreate from './components/FormCreate'
 import Table from './components/Table'
+import FormUpdate from './components/FormUpdate'
 
 
 function App() {
   const [articles, setArticles] = useState ([])
+  const [editArticles, setEditArticles] = useState({})
+
   const fetchDatas = async () => {
     try {
       const response = await axios.get('http://localhost:8000/articles')
@@ -24,15 +27,24 @@ function App() {
   return (
     <div>
       <div className='mx-2'>
-        <div>
+      <div>
           <div className='max-w-5xl mx-auto mt-4'>
-              <FormCreate fetchDatas={fetchDatas} />
+              {Object.keys(editArticles).length > 0 ? (
+                <FormUpdate 
+                editArticles={editArticles}
+                setEditArticles={setEditArticles}
+                fetchDatas={fetchDatas} 
+                 /> 
+                 ) 
+                 : ( <FormCreate fetchDatas={fetchDatas} /> )
+              }
           </div>
         </div>
         <div>
           <div className='max-w-5xl mx-auto mt-4 '>
-              <Table articles={articles} fetchDatas={fetchDatas
-              }/>
+              <Table articles={articles} fetchDatas={fetchDatas}
+              setEditArticles={setEditArticles}
+              />
           </div>
         </div>
         <div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-function Table({articles, fetchDatas}) {
+function Table({articles, fetchDatas, setEditArticles}) {
     const onDelete = async (id) => {
         try {
             const response = await axios.delete(`http://localhost:8000/articles/${id}`)
@@ -14,6 +14,11 @@ function Table({articles, fetchDatas}) {
         }
     }
 
+    const onUpdate = (article) => {
+        setEditArticles(article)
+        console.log(article)
+      }
+
     const listArticle = articles.map (article => 
         <tr key={article.id}>
             <td className='px-2 py-1 border border-blue-300 text-center' >{article.id} </td>
@@ -23,7 +28,9 @@ function Table({articles, fetchDatas}) {
             <td className='px-2 py-1 border border-blue-300 text-center'> {article.highlight == true ? 'ON' : 'OFF'}
             </td>
             <td className='px-2 py-1 border border-blue-300'>
-                <button className='rounded bg-yellow-500 text-white px-2 py-1 mr-4'>Update</button>
+                <button 
+                onClick={() => onUpdate(article) }
+                className='rounded bg-yellow-500 text-white px-2 py-1 mr-4'>Update</button>
                 <button 
                 onClick={() => onDelete(article.id)}
                 className='rounded bg-red-500 text-white px-2 py-1'>Delete</button>
