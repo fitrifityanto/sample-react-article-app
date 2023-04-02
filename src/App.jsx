@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import CardArticles from './components/CardArticles'
 import FormCreate from './components/FormCreate'
+import Table from './components/Table'
 
 
 function App() {
@@ -29,8 +30,13 @@ function App() {
           </div>
         </div>
         <div>
+          <div className='max-w-5xl mx-auto mt-4 '>
+              <Table articles={articles}/>
+          </div>
+        </div>
+        <div>
           <div className='max-w-5xl mx-auto mt-4'>
-            <h1 className='text-xl font-bold uppercase'>Articles</h1>
+            <h1 className='text-xl font-bold uppercase mb-2 mt-8'>Articles</h1>
           </div>
           <div className='max-w-5xl mx-auto mt-4'>
             <div className='flex gap-4 flex-wrap justify-center p-4'>      

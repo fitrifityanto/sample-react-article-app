@@ -42,8 +42,8 @@ function FormCreate({fetchDatas}) {
     }
   return (
     <div>
-        <div className='max-w-5xl mx-auto mt-4'>
-          <h1 className='text-xl font-bold uppercase'>Form Create</h1>
+        <div>
+          <h1 className='text-xl font-bold uppercase mb-2 mt-8'>Form Create</h1>
           <div className='grid gap-3'>
             <div className='grid gap-1'>
                 <label>Judul Artikel</label>
