@@ -5,28 +5,35 @@ function FormCreate({fetchDatas}) {
     const [input, setInput] = useState({
         title:'',
         description:'',
-        image_url:''
+        image_url:'',
+        highlight: false
     })
+
     const handleChange = (event) => {
-        let key = event.target.name
-        let value = event.target.value
-        setInput({
-            ...input,
-            [key]: value
-        })
+        if (event.target.name == 'title') {
+            setInput({...input, title: event.target.value})
+        } else if (event.target.name == 'description') {
+            setInput({...input, description: event.target.value})
+        } else if (event.target.name == 'image_url') {
+            setInput({...input, image_url: event.target.value})
+        } else if (event.target.name == 'highlight') {
+            setInput({...input, highlight: event.target.checked})
+        }
     }
     const handleSubmit = async () => {
     try {
         const response = await axios.post('http://localhost:8000/articles', {
             title: input.title,
             description: input.description,
-            image_url: input.image_url
+            image_url: input.image_url,
+            highlight: input.highlight
         })
         fetchDatas()
         setInput({
             title:'',
             description:'',
-            image_url:''
+            image_url:'',
+            highlight: false
         })
         alert('berhasil menambah data')
     } catch (error) {
@@ -67,6 +74,15 @@ function FormCreate({fetchDatas}) {
                     onChange={handleChange}
                     className='border rounded max-w-md'
                 />
+            </div>
+            <div className=''>
+                <input
+                    type='checkbox'
+                    name='highlight'
+                    checked={input.highlight}
+                    onChange={handleChange} 
+                    />
+                <label className='ml-2'>highlight</label>
             </div>
             <div>
                 <button

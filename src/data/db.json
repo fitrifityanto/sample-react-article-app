@@ -16,15 +16,10 @@
     },
     {
       "title": "ini judul ketiga",
-      "description": "ini deskripsi ketiga",
+      "description": "deskripsinya ketiga",
       "image_url": "https://picsum.photos/200/100",
+      "highlight": true,
       "id": 3
-    },
-    {
-      "title": "ini judul ke empat",
-      "description": "ini deskripsi empat",
-      "image_url": "https://picsum.photos/200/100",
-      "id": 4
     }
   ]
 }
