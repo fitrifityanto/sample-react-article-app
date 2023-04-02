@@ -31,7 +31,8 @@ function App() {
         </div>
         <div>
           <div className='max-w-5xl mx-auto mt-4 '>
-              <Table articles={articles}/>
+              <Table articles={articles} fetchDatas={fetchDatas
+              }/>
           </div>
         </div>
         <div>
