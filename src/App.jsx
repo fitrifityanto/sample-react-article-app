@@ -1,24 +1,15 @@
 
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useContext, useEffect, useState } from 'react'
 import CardArticles from './components/CardArticles'
 import FormCreate from './components/FormCreate'
 import Table from './components/Table'
 import FormUpdate from './components/FormUpdate'
+import { GlobalContext } from './context/GlobalContext'
 
 
 function App() {
-  const [articles, setArticles] = useState ([])
+  const {articles, setArticles, fetchDatas} = useContext(GlobalContext)
   const [editArticles, setEditArticles] = useState({})
-
-  const fetchDatas = async () => {
-    try {
-      const response = await axios.get('http://localhost:8000/articles')
-      setArticles(response.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   useEffect (() => {
     fetchDatas()
@@ -33,16 +24,15 @@ function App() {
                 <FormUpdate 
                 editArticles={editArticles}
                 setEditArticles={setEditArticles}
-                fetchDatas={fetchDatas} 
                  /> 
                  ) 
-                 : ( <FormCreate fetchDatas={fetchDatas} /> )
+                 : ( <FormCreate/> )
               }
           </div>
         </div>
         <div>
           <div className='max-w-5xl mx-auto mt-4 '>
-              <Table articles={articles} fetchDatas={fetchDatas}
+              <Table 
               setEditArticles={setEditArticles}
               />
           </div>

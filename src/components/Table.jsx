@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios'
+import { GlobalContext } from '../context/GlobalContext'
 
-function Table({articles, fetchDatas, setEditArticles}) {
+function Table({setEditArticles}) {
+    const {articles, fetchDatas} = useContext(GlobalContext)
+
     const onDelete = async (id) => {
         try {
             const response = await axios.delete(`http://localhost:8000/articles/${id}`)

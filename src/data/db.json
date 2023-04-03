@@ -8,7 +8,7 @@
       "highlight": false
     },
     {
-      "title": "ini judul kedua",
+      "title": "ini judul kedua update",
       "description": "ini description kedua. sudah diupdate nih",
       "image_url": "https://picsum.photos/200/100",
       "highlight": true,
@@ -22,11 +22,18 @@
       "id": 3
     },
     {
-      "title": "judul artikel kelima",
+      "title": "judul artikel kelima nih",
       "description": "ini deskripsi kelima. kelima ya, saya buat kalimatnya aga panjang coba. bisa ngga ya",
       "image_url": "https://picsum.photos/200/100",
       "highlight": false,
       "id": 5
+    },
+    {
+      "title": "artikel kesekian",
+      "description": "deskripsi artikel kesekian",
+      "image_url": "https://picsum.photos/200/100",
+      "highlight": false,
+      "id": 6
     }
   ]
 }

@@ -1,7 +1,9 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { GlobalContext } from '../context/GlobalContext'
 
-function FormUpdate({fetchDatas, editArticles, setEditArticles}) {
+function FormUpdate({editArticles, setEditArticles}) {
+    const {fetchDatas} = useContext(GlobalContext)
     const [input, setInput] = useState({
         title:'',
         description:'',
