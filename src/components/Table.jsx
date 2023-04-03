@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import axios from 'axios'
 import { GlobalContext } from '../context/GlobalContext'
+import { Link } from 'react-router-dom'
 
-function Table({setEditArticles}) {
+function Table() {
     const {articles, fetchDatas, loading} = useContext(GlobalContext)
 
     const onDelete = async (id) => {
@@ -17,23 +18,20 @@ function Table({setEditArticles}) {
         }
     }
 
-    const onUpdate = (article) => {
-        setEditArticles(article)
-        console.log(article)
-      }
 
     const listArticle = articles.map (article => 
         <tr key={article.id}>
             <td className='px-2 py-1 border border-blue-300 text-center' >{article.id} </td>
             <td className='px-2 py-1 border border-blue-300'>{article.title} </td>
-            <td className='px-2 py-1 border border-blue-300 break-words w-48'>{article.description} </td>
+            <td className='px-2 py-1 border border-blue-300 break-words '>{article.description} </td>
             <td className='px-2 py-1 border border-blue-300'><img src={article.image_url} />  </td>
             <td className='px-2 py-1 border border-blue-300 text-center'> {article.highlight == true ? 'ON' : 'OFF'}
             </td>
             <td className='px-2 py-1 border border-blue-300'>
+                <Link to={`/table/edit/${article.id}`}>
                 <button 
-                onClick={() => onUpdate(article) }
                 className='rounded bg-yellow-500 text-white px-2 py-1 mr-4'>Update</button>
+                </Link>
                 <button 
                 onClick={() => onDelete(article.id)}
                 className='rounded bg-red-500 text-white px-2 py-1'>Delete</button>
@@ -43,11 +41,10 @@ function Table({setEditArticles}) {
   return (
     <>
         <div>
-            <h1 className='text-xl font-bold uppercase mb-2 mt-8'>Tabel Artikel</h1>
-               
-            <div className='flex justify-center'>
-                <div>
-                <table className='border-collapse table-fixed'>
+
+            <div className='flex justify-center border'>
+                <div >
+                <table className='border-collapse table-fixed w-full'>
                     <thead className='bg-blue-500 text-white'>
                         <tr>
                             <th className='px-2 py-1 border text-lg'>ID Title</th>

@@ -1,8 +1,10 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
+import { useNavigate } from 'react-router-dom'
 
 function FormCreate() {
+    const navigate = useNavigate()
     const {fetchDatas} = useContext(GlobalContext)
     const [input, setInput] = useState({
         title:'',
@@ -38,6 +40,7 @@ function FormCreate() {
             highlight: false
         })
         alert('berhasil menambah data')
+       navigate('/table') 
     } catch (error) {
         console.log(error.response.data)
     }

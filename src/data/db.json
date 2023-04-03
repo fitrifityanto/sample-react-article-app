@@ -16,24 +16,38 @@
     },
     {
       "title": "ini judul ketiga",
-      "description": "deskripsinya ketiga",
+      "description": "deskripsinya ketiga baru diupdate",
       "image_url": "https://picsum.photos/200/100",
-      "highlight": false,
+      "highlight": true,
       "id": 3
     },
     {
-      "title": "judul artikel kelima nih",
+      "title": "judul artikel kelima update lho",
       "description": "ini deskripsi kelima. kelima ya, saya buat kalimatnya aga panjang coba. bisa ngga ya",
       "image_url": "https://picsum.photos/200/100",
       "highlight": false,
       "id": 5
     },
     {
-      "title": "artikel kesekian",
-      "description": "deskripsi artikel kesekian",
+      "title": "artikel kesekian update",
+      "description": "deskripsi artikel kesekian juga diupdate lagi ya",
       "image_url": "https://picsum.photos/200/100",
       "highlight": false,
       "id": 6
+    },
+    {
+      "title": "test artikel routing update",
+      "description": "ini deskripsi artikel routing nya",
+      "image_url": "https://picsum.photos/200/100",
+      "highlight": true,
+      "id": 7
+    },
+    {
+      "title": "judul artikel navigate",
+      "description": "ini deskripsi navigate nya",
+      "image_url": "https://picsum.photos/200/100",
+      "highlight": false,
+      "id": 8
     }
   ]
 }

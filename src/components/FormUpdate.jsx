@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
 import { GlobalContext } from '../context/GlobalContext'
+import { useNavigate, useParams } from 'react-router-dom'
 
-function FormUpdate({editArticles, setEditArticles}) {
+function FormUpdate() {
+    const navigate = useNavigate()
+    const {id} = useParams()
     const {fetchDatas} = useContext(GlobalContext)
     const [input, setInput] = useState({
         title:'',
@@ -22,31 +25,41 @@ function FormUpdate({editArticles, setEditArticles}) {
             setInput({...input, highlight: event.target.checked})
         }
     }
-    
-    useEffect (() => {
-        setInput ({
-        title: editArticles.title,
-        description: editArticles.description,
-        image_url: editArticles.image_url,
-        highlight: editArticles.highlight
-        })
-    }, [])
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.put(`http://localhost:8000/articles/${editArticles.id}`, {
+            const response = await axios.put(`http://localhost:8000/articles/${id}`, {
                 title: input.title,
                 description: input.description,
                 image_url: input.image_url,
                 highlight: input.highlight
             })
-            fetchDatas()
-            setEditArticles({})
-            alert(`berhasil mengubah artikel id ${editArticles.id}`)
+            alert(`berhasil mengubah artikel berjudul '${input.title}' `)
+            navigate('/table')
         } catch (error) {
-            console.log(error.response.data)
+            console.log(error)
         }
         }
+    
+    const fetchDetail = async () => {
+        try {
+            const response = await axios.get(`http://localhost:8000/articles/${id}`)
+            const article = response.data
+            setInput({
+                title: article.title,
+                description: article.description,
+                image_url: article.image_url,
+                highlight: article.highlight
+            })
+            console.log(response.data)
+        } catch (error) {
+            console.log(error)
+        } 
+      }
+    
+      useEffect (() => {
+        fetchDetail()
+      }, [])
 
 
   return (
