@@ -3,7 +3,7 @@ import axios from 'axios'
 import { GlobalContext } from '../context/GlobalContext'
 
 function Table({setEditArticles}) {
-    const {articles, fetchDatas} = useContext(GlobalContext)
+    const {articles, fetchDatas, loading} = useContext(GlobalContext)
 
     const onDelete = async (id) => {
         try {
@@ -44,12 +44,13 @@ function Table({setEditArticles}) {
     <>
         <div>
             <h1 className='text-xl font-bold uppercase mb-2 mt-8'>Tabel Artikel</h1>
+               
             <div className='flex justify-center'>
                 <div>
                 <table className='border-collapse table-fixed'>
                     <thead className='bg-blue-500 text-white'>
                         <tr>
-                        <th className='px-2 py-1 border text-lg'>ID Title</th>
+                            <th className='px-2 py-1 border text-lg'>ID Title</th>
                             <th className='px-2 py-1 border text-lg'>Title</th>
                             <th className='px-2 py-1 border text-lg'>Description</th>
                             <th className='px-2 py-1 border text-lg'>Image URL</th>
@@ -58,11 +59,22 @@ function Table({setEditArticles}) {
                         </tr>
                     </thead>
                     <tbody>
-                        {listArticle}                        
+                        {
+                    loading === true ? (
+                    <tr>
+                        <td colSpan={6}>
+                        <h1 className='text-red-500 text-xl font-bold text-center'>Loading tabel artikel ...</h1> 
+                        </td>
+                    </tr>
+                    ) : listArticle                        
+                        }
+
+                
                     </tbody>
                 </table>
                 </div>
             </div>
+ 
         </div>
     </>
   )

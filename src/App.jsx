@@ -8,7 +8,7 @@ import { GlobalContext } from './context/GlobalContext'
 
 
 function App() {
-  const {articles, setArticles, fetchDatas} = useContext(GlobalContext)
+  const {articles, setArticles, fetchDatas, loading} = useContext(GlobalContext)
   const [editArticles, setEditArticles] = useState({})
 
   useEffect (() => {
@@ -32,9 +32,9 @@ function App() {
         </div>
         <div>
           <div className='max-w-5xl mx-auto mt-4 '>
-              <Table 
-              setEditArticles={setEditArticles}
-              />
+                <Table 
+                setEditArticles={setEditArticles}
+                />
           </div>
         </div>
         <div>
@@ -42,6 +42,14 @@ function App() {
             <h1 className='text-xl font-bold uppercase mb-2 mt-8'>Articles</h1>
           </div>
           <div className='max-w-5xl mx-auto mt-4'>
+          {
+            loading === true ? (
+              <div className='flex justify-center'>
+                <h1 className='text-red-500 text-xl'>Loading Articles ...</h1> 
+              </div>
+            )
+            :
+            (
             <div className='flex gap-4 flex-wrap justify-center p-4'>      
             {
               articles.map((article) => {
@@ -49,6 +57,8 @@ function App() {
               })
             }
             </div>
+            )
+          }
           </div>
         </div>
       </div>
